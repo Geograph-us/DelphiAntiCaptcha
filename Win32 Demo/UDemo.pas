@@ -46,7 +46,7 @@ implementation
 
 procedure TForm1.btnBalanceClick(Sender: TObject);
 begin
-  btnBalance.Caption := 'Баланс: ' + GetBalanceAG(edtAntiGateKey.Text);
+  btnBalance.Caption := 'Р‘Р°Р»Р°РЅСЃ: ' + GetBalanceAG(edtAntiGateKey.Text);
 end;
 
 (*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*)
@@ -64,13 +64,13 @@ end;
 procedure TForm1.btnImageFileClick(Sender: TObject);
 var s: String;
 begin
-  mResult.Lines.Strings[0] := 'Идет распознавание...';
+  mResult.Lines.Strings[0] := 'РРґРµС‚ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёРµ...';
   Application.ProcessMessages;
-  // Распознаем каптчу из файла
+  // Р Р°СЃРїРѕР·РЅР°РµРј РєР°РїС‚С‡Сѓ РёР· С„Р°Р№Р»Р°
   CaptchaID := RecognizeAG(edtImageFile.Text, edtAntiGateKey.Text, s);
-  mResult.Lines.Strings[0] := s; // Выводим результат
-  Beep;    // Пищим от радости, что закончили :)
-  mResult.Lines.SaveToFile('Result.txt');  // Сохраняем каптчу в файл
+  mResult.Lines.Strings[0] := s; // Р’С‹РІРѕРґРёРј СЂРµР·СѓР»СЊС‚Р°С‚
+  Beep;    // РџРёС‰РёРј РѕС‚ СЂР°РґРѕСЃС‚Рё, С‡С‚Рѕ Р·Р°РєРѕРЅС‡РёР»Рё :)
+  mResult.Lines.SaveToFile('Result.txt');  // РЎРѕС…СЂР°РЅСЏРµРј РєР°РїС‚С‡Сѓ РІ С„Р°Р№Р»
 end;
 
 (*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*)
@@ -78,29 +78,29 @@ end;
 procedure TForm1.btnImageURLClick(Sender: TObject);
 var s: String;
 begin
-  mResult.Lines.Strings[0] := 'Идет распознавание...';
+  mResult.Lines.Strings[0] := 'РРґРµС‚ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёРµ...';
   Application.ProcessMessages;
-  // Распознаем каптчу по ссылке
+  // Р Р°СЃРїРѕР·РЅР°РµРј РєР°РїС‚С‡Сѓ РїРѕ СЃСЃС‹Р»РєРµ
   CaptchaID := RecognizeAG(edtImageURL.Text, edtAntiGateKey.Text, s, '');
-  mResult.Lines.Strings[0] := s;  // Выводим результат
-  Beep;    // Пищим от радости, что закончили :)
-  mResult.Lines.SaveToFile('Result.txt');  // Сохраняем каптчу в файл
+  mResult.Lines.Strings[0] := s;  // Р’С‹РІРѕРґРёРј СЂРµР·СѓР»СЊС‚Р°С‚
+  Beep;    // РџРёС‰РёРј РѕС‚ СЂР°РґРѕСЃС‚Рё, С‡С‚Рѕ Р·Р°РєРѕРЅС‡РёР»Рё :)
+  mResult.Lines.SaveToFile('Result.txt');  // РЎРѕС…СЂР°РЅСЏРµРј РєР°РїС‚С‡Сѓ РІ С„Р°Р№Р»
 end;
 
 (*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*)
 
 procedure TForm1.btnReportBadClick(Sender: TObject);
 begin
-  // Отправляем жалобу на неверно распознанную каптчу с номером CaptchaID
+  // РћС‚РїСЂР°РІР»СЏРµРј Р¶Р°Р»РѕР±Сѓ РЅР° РЅРµРІРµСЂРЅРѕ СЂР°СЃРїРѕР·РЅР°РЅРЅСѓСЋ РєР°РїС‚С‡Сѓ СЃ РЅРѕРјРµСЂРѕРј CaptchaID
   mResult.Lines.Strings[0] := ReportBadAG(edtAntiGateKey.Text, CaptchaID);
-  Beep;    // Пищим от радости, что закончили :)
+  Beep;    // РџРёС‰РёРј РѕС‚ СЂР°РґРѕСЃС‚Рё, С‡С‚Рѕ Р·Р°РєРѕРЅС‡РёР»Рё :)
 end;
 
 (*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*)
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  //Ставим нормальный курсор руки, а не тот что дает Дельфи
+  //РЎС‚Р°РІРёРј РЅРѕСЂРјР°Р»СЊРЅС‹Р№ РєСѓСЂСЃРѕСЂ СЂСѓРєРё, Р° РЅРµ С‚РѕС‚ С‡С‚Рѕ РґР°РµС‚ Р”РµР»СЊС„Рё
   Screen.Cursors[crHandPoint] := LoadCursor(0,PChar(IDC_HAND));
 end;
 
